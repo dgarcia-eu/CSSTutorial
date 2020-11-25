@@ -1,43 +1,54 @@
-<!DOCTYPE html>
-<html lang="" xml:lang="">
-  <head>
-    <title>Computational Social Science</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="David Garcia   TU Graz and Complexity Science Hub Vienna" />
-    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
-    <link rel="stylesheet" href="libs/footer.css" type="text/css" />
-  </head>
-  <body>
-    <textarea id="source">
-class: center, middle, inverse, title-slide
-
-# Computational Social Science
-## Analyzing complex social phenomena through social media data
-### David Garcia <br> <em>TU Graz and Complexity Science Hub Vienna</em>
-### Slides vailable at: dgarcia.eu/csstutorial2020
-
+---
+title: "Computational Social Science"
+subtitle: "Analyzing complex social phenomena through social media data"
+author: "David Garcia <br> *TU Graz and Complexity Science Hub Vienna*"
+date: "Slides vailable at: dgarcia.eu/csstutorial2020"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs 
+    css: [xaringan-themer.css, "libs/footer.css"]
+    nature:
+      beforeInit: ["libs/perc.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
 ---
 
 
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+#This block contains the theme configuration for the CSS lab slides style
+library(xaringanthemer)
+library(showtext)
+style_mono_accent(
+  base_color = "#5c5c5c",
+  text_font_size = "1.5rem",
+  header_font_google = google_font("Arial"),
+  text_font_google   = google_font("Arial", "300", "300i"),
+  code_font_google   = google_font("Fira Mono")
+)
+```
 
-
-
-
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
 
 
 layout: true
-&lt;div class="my-footer"&gt;&lt;span&gt;David Garcia - Computational Social Science Lab - TU Graz + CSH Vienna&lt;/span&gt;&lt;/div&gt; 
+<div class="my-footer"><span>David Garcia - Computational Social Science Lab - TU Graz + CSH Vienna</span></div> 
 
 ---
 class:center
 # About me
 
 .pull-left[
-&lt;img src="figures/Profile.jpg" width="270" /&gt;
+```{r, echo=FALSE, out.width=270}
+knitr::include_graphics("figures/Profile.jpg")
+```
 ]
 
 .pull-right[
-&lt;br&gt;
+<br>
 Website: [dgarcia.eu](https://dgarcia.eu)
 
 Twitter: [@dgarcia_eu](https://twitter.com/dgarcia_eu)
@@ -48,20 +59,20 @@ Email: garcia@csh.ac.at
 ]
 
 Professor for Computational Behavioral and Social Sciences at TU Graz
-&lt;br&gt;Faculty member of the Complexity Science Hub Vienna
-&lt;br&gt;Group leader at the Medical University of Vienna
-&lt;br&gt;Privatdozent at ETH Zurich, teaching Social Data Science
+<br>Faculty member of the Complexity Science Hub Vienna
+<br>Group leader at the Medical University of Vienna
+<br>Privatdozent at ETH Zurich, teaching Social Data Science
 
 ---
 
 
 # Computational Social Science
 
-&gt; Quantitative testing theories from the social sciences at unprecedented 
+> Quantitative testing theories from the social sciences at unprecedented 
 breadth and depth and scale.                      (Lazer et. al. Science, 2009)
 
 .pull-left[
-- Quantitative and empirical, &lt;br&gt;
+- Quantitative and empirical, <br>
 not just theoretical
 
 - Not data-driven studies: interdisciplinary research
@@ -70,7 +81,9 @@ not just theoretical
 ]
 
 .pull-right[
-&lt;img src="figures/CSS.gif" width="500" /&gt;
+```{r, echo=FALSE, out.width=500}
+knitr::include_graphics("figures/CSS.gif")
+```
 ]
 
 ---
@@ -79,19 +92,19 @@ not just theoretical
 ## *Computational* in Computational Social Science
 It can have three meanings:
 
-- **Digital**&lt;br&gt; 
+- **Digital**<br> 
 Based on large datasets of human behavior, for example produced by the Web and social media
 
-- **Computerized**&lt;br&gt;
+- **Computerized**<br>
 The quantitative analysis of data in an automated, tractable, repeatable, and extensible fashion
 
-- **Generative**&lt;br&gt;
+- **Generative**<br>
 Application of data and results to design of agent-based models that explain complex social phenomena and motivate interventions
 
 ---
 
 ## New Data for the Social and Behavioral Sciences
-&lt;br&gt;
+<br>
 - **Big Data:** Observing large and diverse sets of humans
 
 - **Fast Data:** Quantifying human behavior in real time
@@ -121,54 +134,66 @@ Application of data and results to design of agent-based models that explain com
 - Data gatekeepers, Twitter as a model organism
 - Intractability of black-box predictions and data piñatas
 
-&lt;div style="font-size:15pt"&gt;
-[Sen et al. (2019). A Total Error Framework for Digital Traces of Humans.](https://arxiv.org/abs/1907.08228)&lt;br&gt;
+<div style="font-size:15pt">
+[Sen et al. (2019). A Total Error Framework for Digital Traces of Humans.](https://arxiv.org/abs/1907.08228)<br>
 [Olteanu et al. (2019). Social Data: Biases, Methodological Pitfalls, and Ethical Boundaries.](https://www.frontiersin.org/articles/10.3389/fdata.2019.00013/full)
 
 ---
 
 # Avoid making a data piñata
 
-&lt;img src="figures/pinata.png" width="1050" /&gt;
+```{r, echo=FALSE, out.width=1050}
+knitr::include_graphics("figures/pinata.png")
+```
 
 ---
 
 # "Interdisciplinarity" in CSS
 
-&lt;center&gt;
-&lt;img src="figures/Venn.jpg" width="950" /&gt;
+<center>
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/Venn.jpg")
+```
 
 ---
 
 # *Interdisciplinarity* in CSS
 
-&lt;center&gt;
-&lt;img src="figures/VennVision.jpg" width="950" /&gt;
+<center>
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/VennVision.jpg")
+```
 
 ---
 
 # Four examples of CSS
 
-&lt;center&gt;
-&lt;img src="figures/Topics.png" width="950" /&gt;
+<center>
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/Topics.png")
+```
 
 ---
 
 # Computational Affective Science
 
-&lt;center&gt;
-&lt;img src="figures/CAS.png" width="950" /&gt;
+<center>
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/CAS.png")
+```
 
 ---
 
 # Computational Affective Science
 
 **Computational Affective Science:** Combining big social data and computational modeling to understand affective life and emotional well-being
-&lt;center&gt;
+<center>
 Vienna Research Group in Complexity Science funded by the 
-&lt;br&gt;
+<br>
 Viena Science and Technology Fund  (1.6M Euro)  
-&lt;img src="figures/VRG.png" width="700" /&gt;
+```{r, echo=FALSE, out.width=700}
+knitr::include_graphics("figures/VRG.png")
+```
 
 ---
 
@@ -176,31 +201,37 @@ Viena Science and Technology Fund  (1.6M Euro)
 ## Examples of Computational Affective Science
 
 .pull-left[
-&lt;img src="figures/TwitterMood.jpg" width="600" /&gt;
+```{r, echo=FALSE, out.width=600}
+knitr::include_graphics("figures/TwitterMood.jpg")
+```
 Mood expression oscillates in Twitter
 ]
 
 .pull-right[
-&lt;img src="figures/TwitterHeart.png" width="500" /&gt;
+```{r, echo=FALSE, out.width=500}
+knitr::include_graphics("figures/TwitterHeart.png")
+```
 Affect in Twitter and heart diseaes
 ]
 
-&lt;div style="font-size:14pt"&gt;
-[Diurnal and Seasonal Mood Vary with Work, Sleep, and Daylength Across Diverse Cultures. S. Golder, M. Macy. Science, 2011](https://science.sciencemag.org/content/333/6051/1878)&lt;br&gt;
+<div style="font-size:14pt">
+[Diurnal and Seasonal Mood Vary with Work, Sleep, and Daylength Across Diverse Cultures. S. Golder, M. Macy. Science, 2011](https://science.sciencemag.org/content/333/6051/1878)<br>
 [Psychological language on Twitter predicts county-level heart disease mortality. J. Eichstaedt et. al. Psychological Science, 2015](https://journals.sagepub.com/doi/10.1177/0956797614557867)
 ---
 
 layout: true
-&lt;div class="my-footer"&gt;&lt;span&gt;
-&lt;a href=https://doi.org/10.1177%2F0956797619831964&gt; Collective Emotions and Social Resilience in the Digital Traces After a Terrorist Attack. David Garcia Bernard Rimé. Psychological Science (2019)&lt;/a&gt;&lt;/span&gt;&lt;/div&gt; 
+<div class="my-footer"><span>
+<a href=https://doi.org/10.1177%2F0956797619831964> Collective Emotions and Social Resilience in the Digital Traces After a Terrorist Attack. David Garcia Bernard Rimé. Psychological Science (2019)</a></span></div> 
 
 ---
 
 ## The Social Function of Collective Emotions
 
-&lt;center&gt;
-&lt;img src="figures/ColectiveEmotions.png" width="900" /&gt;
-&lt;/center&gt;
+<center>
+```{r, echo=FALSE, out.width=900}
+knitr::include_graphics("figures/ColectiveEmotions.png")
+```
+</center>
 
 - **Theory of collective effervescence** (Durkheim, 1912):
 Shared emotions generate social identity, reinforce shared beliefs, and lead to higher solidarity
@@ -235,8 +266,10 @@ background-position: 90% 60%
 Focus on Paris Attacks of of Nov 13, 2015  
 Removed bots, news media, and organizations. Final sample of 62,114 users  
 Retrieved historical timeline of users. Total of more than 27 Million tweets (no RT)
-&lt;center&gt;
-&lt;img src="figures/ParisCase.png" width="900" /&gt;
+<center>
+```{r, echo=FALSE, out.width=900}
+knitr::include_graphics("figures/ParisCase.png")
+```
 
 ---
 
@@ -249,7 +282,9 @@ Retrieved historical timeline of users. Total of more than 27 Million tweets (no
 
 
 .pull-left[
-&lt;img src="figures/LIWC.png" width="1000" /&gt;
+```{r, echo=FALSE, out.width=1000}
+knitr::include_graphics("figures/LIWC.png")
+```
 ]
 .pull-right[
 **LIWC classes in this study:**  
@@ -265,37 +300,45 @@ French values (libert\*, egalit\*, fraternit\*)
 ## Agent-Based Modelling of Collective Emotions
 
 .pull-left[
-&lt;img src="figures/Framework.png" width="1000" /&gt;
+```{r, echo=FALSE, out.width=1000}
+knitr::include_graphics("figures/Framework.png")
+```
 
 ABM calibrated with experiment data
 - φ: post-shock AR(1) term
 - φ~0: subcritical response
-- φ&gt;0: critical, collective behavior
+- φ>0: critical, collective behavior
 ]
 
 .pull-right[
-&lt;img src="figures/Simulation.png" width="450" /&gt;
-&lt;center&gt;
+```{r, echo=FALSE, out.width=450}
+knitr::include_graphics("figures/Simulation.png")
+```
+<center>
 Mean valence in simulations
-&lt;/center&gt;
+</center>
 ]
 
-&lt;div style="font-size:14pt"&gt;
+<div style="font-size:14pt">
 [The Dynamics of Emotions in Online Interaction. Garcia et al. Royal Society Open Science 3 (2016)](https://royalsocietypublishing.org/doi/full/10.1098/rsos.160059)
 
 ---
 
 ## Evidence of Collective Emotions
-&lt;center&gt;
-&lt;img src="figures/TS.png" width="750" /&gt;
-&lt;/center&gt;
+<center>
+```{r, echo=FALSE, out.width=750}
+knitr::include_graphics("figures/TS.png")
+```
+</center>
 
 ---
 
 ### Collective Dynamics of Social Resilience Indicators
-&lt;center&gt;
-&lt;img src="figures/TS2.png" width="720" /&gt;
-&lt;/center&gt;
+<center>
+```{r, echo=FALSE, out.width=720}
+knitr::include_graphics("figures/TS2.png")
+```
+</center>
 
 
 ---
@@ -303,9 +346,11 @@ Mean valence in simulations
 ## Emotional Synchronization Effect
 
 .pull-left[
-&lt;center&gt;
-&lt;img src="figures/TS3.png" width="470" /&gt;
-&lt;/center&gt;
+<center>
+```{r, echo=FALSE, out.width=470}
+knitr::include_graphics("figures/TS3.png")
+```
+</center>
 ]
 
 .pull-right[
@@ -340,15 +385,15 @@ Similar effect for prosocial terms and shared values terms
 ---
 
 layout: true
-&lt;div class="my-footer"&gt;&lt;span&gt;
-&lt;a href=https://www.frontiersin.org/articles/10.3389/fdata.2020.00032/full&gt; Dashboard of Sentiment in Austrian Social Media During COVID-19. Max Pellert, Jana Lasser, Hannah Metzler, David Garcia. Frontiers in Big Data (2020)&lt;/a&gt;&lt;/span&gt;&lt;/div&gt; 
+<div class="my-footer"><span>
+<a href=https://www.frontiersin.org/articles/10.3389/fdata.2020.00032/full> Dashboard of Sentiment in Austrian Social Media During COVID-19. Max Pellert, Jana Lasser, Hannah Metzler, David Garcia. Frontiers in Big Data (2020)</a></span></div> 
 
 ---
 
 ## A recent example: The 2020 Vienna terrorist attack
 
 .pull-left[
-&lt;img width=450 src="https://ichef.bbci.co.uk/news/800/cpsprodpb/2EDF/production/_115199911_vienna_attack_3_nov_zoomed_in_640_2x-nc.png"&gt;
+<img width=450 src="https://ichef.bbci.co.uk/news/800/cpsprodpb/2EDF/production/_115199911_vienna_attack_3_nov_zoomed_in_640_2x-nc.png">
 ]
 .pull-right[
 - Analysis of Twitter response to Vienna terrorist attack of November 2nd, 2002
@@ -366,20 +411,24 @@ class:center
 
 ## Hourly twitter activity in Vienna
 
-&lt;img width=900 src="https://pbs.twimg.com/media/EmAWjtSXUAEd2Wx?format=jpg&amp;name=large"&gt;
+<img width=900 src="https://pbs.twimg.com/media/EmAWjtSXUAEd2Wx?format=jpg&name=large">
 
 ---
 
 ## Austrian Emotions on Twitter
 
-&lt;img src="figures/Dashboard1.png" width="850" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=850, fig.align='center'}
+knitr::include_graphics("figures/Dashboard1.png")
+```
 
 Dashboard: https://mpellert.at/covid19_monitor_austria
 ---
 
 ## Austrian Emotions in Der Standard Tickers
 
-&lt;img src="figures/Dashboard2.png" width="870" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=870, fig.align='center'}
+knitr::include_graphics("figures/Dashboard2.png")
+```
 
 Dashboard: https://mpellert.at/covid19_monitor_austria
 
@@ -393,7 +442,7 @@ background-position: 90% 60%
 ## Shelter offerings on Twitter
 
 .pull-left[
-&lt;img width=1000 src="https://pbs.twimg.com/media/EmAbRICXYAA0WqB?format=png&amp;name=large"&gt;
+<img width=1000 src="https://pbs.twimg.com/media/EmAbRICXYAA0WqB?format=png&name=large">
 - Number of tweets with hashtags similar to [#Schwedenplatztür](https://twitter.com/hashtag/schwedenplatzt%C3%BCr)
 - More in Twittet thread:
 https://twitter.com/dgarcia_eu/status/1324097342551842817
@@ -402,22 +451,24 @@ https://twitter.com/dgarcia_eu/status/1324097342551842817
 ---
 
 layout: true
-&lt;div class="my-footer"&gt;&lt;span&gt;
-&lt;a href=http://jasss.soc.surrey.ac.uk/23/3/5.html&gt; A Weighted Balance Model of Opinion Hyperpolarization. Simon Schweighofer, Frank Schweitzer &amp; David Garcia, JASSS (2020)&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
+<div class="my-footer"><span>
+<a href=http://jasss.soc.surrey.ac.uk/23/3/5.html> A Weighted Balance Model of Opinion Hyperpolarization. Simon Schweighofer, Frank Schweitzer & David Garcia, JASSS (2020)</a></span></div>
 
 ---
 
 # Polarization Dynamics
 
-&lt;center&gt;
-&lt;img src="figures/PolDyn.png" width="950" /&gt;
+<center>
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/PolDyn.png")
+```
 
 ---
 
 ## Approaches to Polarization
 
 **Opinion polarization:** Two opinion groups with extreme distance in between
-[Political Polarization in the American Public. Fiorina &amp; Abrams. Annual Review of Political Science (2008)](https://www.annualreviews.org/doi/10.1146/annurev.polisci.11.053106.153836)
+[Political Polarization in the American Public. Fiorina & Abrams. Annual Review of Political Science (2008)](https://www.annualreviews.org/doi/10.1146/annurev.polisci.11.053106.153836)
 
 **Relational polarization:** Social structure divided into two groups with high internal connectivity and low inter-group connectivity  
 [A sign of the times? Weak and strong polarization in the U.S. Congress, 1973–2016. Neal. Social Networks (2020)](https://www.sciencedirect.com/science/article/abs/pii/S0378873317303039)
@@ -433,8 +484,10 @@ layout: true
 
 # Hyperpolarization
 
-&lt;img src="figures/Hyperpolarization.png" width="950" style="display: block; margin: auto;" /&gt;
-&lt;center&gt;
+```{r, echo=FALSE, out.width=950, fig.align='center'}
+knitr::include_graphics("figures/Hyperpolarization.png")
+```
+<center>
 *Hyperpolarization: Opinion extremeness x Opinion constraint*
 
 ---
@@ -451,10 +504,12 @@ layout: true
 ]
 
 .pull-right[
-&lt;img src="figures/WBT.png" width="450" /&gt;
+```{r, echo=FALSE, out.width=450}
+knitr::include_graphics("figures/WBT.png")
+```
 ]
 
-[A Weighted Balance Model of Opinion Hyperpolarization. Schweighofer, Schweitzer &amp; Garcia, JASSS (2020)](http://jasss.soc.surrey.ac.uk/23/3/5.html)
+[A Weighted Balance Model of Opinion Hyperpolarization. Schweighofer, Schweitzer & Garcia, JASSS (2020)](http://jasss.soc.surrey.ac.uk/23/3/5.html)
 
 ---
 class:center
@@ -462,13 +517,13 @@ class:center
 ## Hyperpolarization in Weighted Balance Theory
 
 
-&lt;iframe width="800" height="500" src="https://www.youtube.com/embed/y4rvLMgqwXQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+<iframe width="800" height="500" src="https://www.youtube.com/embed/y4rvLMgqwXQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
 layout: true
-&lt;div class="my-footer"&gt;&lt;span&gt;
-&lt;a href=https://doi.org/10.1016/S0140-6736(19)32526-7&gt; EATLancet vs yes2meat: the digital backlash to the planetary health diet. David Garcia, Victor Galaz, Stefan Daume. The Lancet (2019)&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
+<div class="my-footer"><span>
+<a href=https://doi.org/10.1016/S0140-6736(19)32526-7> EATLancet vs yes2meat: the digital backlash to the planetary health diet. David Garcia, Victor Galaz, Stefan Daume. The Lancet (2019)</a></span></div>
 
 ---
 
@@ -488,14 +543,18 @@ layout: true
 ]
 .pull-right[
 
-&lt;img src="figures/Trends.png" width="450" /&gt;
+```{r, echo=FALSE, out.width=450}
+knitr::include_graphics("figures/Trends.png")
+```
 ]
 
 ---
 
 ## A case of food polarization: the EAT-Lancet report
 
-&lt;img src="figures/eatlancet.png" width="1000" /&gt;
+```{r, echo=FALSE, out.width=1000}
+knitr::include_graphics("figures/eatlancet.png")
+```
 
 *The first full scientific review of what constitutes a healthy diet from a sustainable food system, and which actions can support and speed up food system transformation. (eatforum.org)*
 
@@ -503,7 +562,9 @@ layout: true
 
 ## \#yes2meat: the digital backlash to EAT-Lancet
 
-&lt;img src="figures/yes2meat.png" width="1100" /&gt;
+```{r, echo=FALSE, out.width=1100}
+knitr::include_graphics("figures/yes2meat.png")
+```
 ---
 
 ## Twitter data on EAT-Lancet and yes2meat
@@ -524,13 +585,17 @@ class:center
 
 ## Time series and URL shares
 
-&lt;img src="figures/TS-eatlancet.png" width="950" /&gt;
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/TS-eatlancet.png")
+```
 
 ---
 
 ## Social network analysis
 .pull-left[
-&lt;img src="figures/Net.png" width="500" /&gt;
+```{r, echo=FALSE, out.width=500}
+knitr::include_graphics("figures/Net.png")
+```
 ]
 .pull-right[
 
@@ -539,46 +604,66 @@ class:center
 
 ## Social network analysis
 .pull-left[
-&lt;img src="figures/Net.png" width="500" /&gt;
+```{r, echo=FALSE, out.width=500}
+knitr::include_graphics("figures/Net.png")
+```
 ]
 .pull-right[
-&lt;img src="figures/WCblue.png" width="950" /&gt;
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/WCblue.png")
+```
 ]
 ---
 
 ## Social network analysis
 .pull-left[
-&lt;img src="figures/Net.png" width="500" /&gt;
+```{r, echo=FALSE, out.width=500}
+knitr::include_graphics("figures/Net.png")
+```
 ]
 .pull-right[
-&lt;img src="figures/WCred.png" width="950" /&gt;
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/WCred.png")
+```
 ]
 ---
 
 ## Social network analysis
 .pull-left[
-&lt;img src="figures/Net.png" width="500" /&gt;
+```{r, echo=FALSE, out.width=500}
+knitr::include_graphics("figures/Net.png")
+```
 ]
 .pull-right[
-&lt;img src="figures/WCgreen.png" width="490" /&gt;
+```{r, echo=FALSE, out.width=490}
+knitr::include_graphics("figures/WCgreen.png")
+```
 ]
 ---
 
 ## Social network analysis
 .pull-left[
-&lt;img src="figures/Net.png" width="500" /&gt;
+```{r, echo=FALSE, out.width=500}
+knitr::include_graphics("figures/Net.png")
+```
 ]
 .pull-right[
-&lt;img src="figures/WCyellow.png" width="950" /&gt;
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/WCyellow.png")
+```
 ]
 ---
 
 ## Retweet changes in yellow community
 .pull-left[
-&lt;img src="figures/Net.png" width="500" /&gt;
+```{r, echo=FALSE, out.width=500}
+knitr::include_graphics("figures/Net.png")
+```
 ]
 .pull-right[
-&lt;img src="figures/YellowRT.png" width="450" /&gt;
+```{r, echo=FALSE, out.width=450}
+knitr::include_graphics("figures/YellowRT.png")
+```
 ]
 ---
 
@@ -599,14 +684,16 @@ https://doi.org/10.1016/S0140-6736(19)32526-7
 ---
 
 layout: true
-&lt;div class="my-footer"&gt;&lt;span&gt;David Garcia - Computational Social Science Lab - TU Graz + CSH Vienna&lt;/span&gt;&lt;/div&gt; 
+<div class="my-footer"><span>David Garcia - Computational Social Science Lab - TU Graz + CSH Vienna</span></div> 
 
 ---
 
 # Online Inequality
 
-&lt;center&gt;
-&lt;img src="figures/Inequality.png" width="950" /&gt;
+<center>
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/Inequality.png")
+```
 
 ---
 class:center
@@ -616,20 +703,26 @@ class:center
 .pull-left[
 Opportunities and benefits
 
-&lt;img src="figures/FBmap.png" width="950" /&gt;
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/FBmap.png")
+```
 ]
 --
 .pull-right[
 Risks and problems
 
-&lt;img src="figures/zuck.png" width="950" /&gt;
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/zuck.png")
+```
 ]
 ---
 
 # Technology and Democracy
 
 .pull-left[
-&lt;img src="figures/JRC.png" width="420" /&gt;
+```{r, echo=FALSE, out.width=420}
+knitr::include_graphics("figures/JRC.png")
+```
 ]
 
 .pull-right[
@@ -639,46 +732,48 @@ Risks and problems
 ---
 
 layout: true
-&lt;div class="my-footer"&gt;&lt;span&gt;
-&lt;a href=http://www.pnas.org/content/early/2018/06/12/1717781115&gt; Analyzing gender inequality through large-scale Facebook advertising data. David Garcia et al. Proceedings of the National Academy of Sciences (2018)&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
+<div class="my-footer"><span>
+<a href=http://www.pnas.org/content/early/2018/06/12/1717781115> Analyzing gender inequality through large-scale Facebook advertising data. David Garcia et al. Proceedings of the National Academy of Sciences (2018)</a></span></div>
 
 ---
 
 
 # Inequality and gender in social media
 
-- The Internet as the Great Potential Equalizer (Hargittai &amp; Hsieh 2013): 
+- The Internet as the Great Potential Equalizer (Hargittai & Hsieh 2013): 
   - Providing opportunities and  information access to everyone?
 
 - "Unequal distribution of Internet access might exacerbate socioeconomic inequalities."
-&lt;div style="text-align: right"&gt; &lt;em property="italic"&gt; World Bank: World Development Report 2016: Digital Dividends &lt;/em&gt;&lt;/div&gt;
+<div style="text-align: right"> <em property="italic"> World Bank: World Development Report 2016: Digital Dividends </em></div>
 
 - "One in five female Internet users live in countries where harassment and abuse of women online is extremely unlikely to be punished." 
-&lt;div style="text-align: right"&gt; &lt;em property="italic"&gt; The Web and Rising Global Inequality.  World Wide Web Foundation, 2015 &lt;/em&gt;&lt;/div&gt;
+<div style="text-align: right"> <em property="italic"> The Web and Rising Global Inequality.  World Wide Web Foundation, 2015 </em></div>
 
 ---
 
 ## The Facebook Ads API in demographics
 
-&lt;img src="figures/FBAPI.png" width="800" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=800, fig.align='center'}
+knitr::include_graphics("figures/FBAPI.png")
+```
 - Programmatic Interface to automate marketing campaign in Facebook
 - Audiences can be tuned by demographic attributes (gender, age, income...) or interests (sports, political parties, entertainment...) 
 - Accessible for everyone with a Facebook account - audience metrics for everyone
-- Used in demographics and development research (e.g. [Zagheni, Weber, &amp; Gummadi, 2017;](https://doi.org/10.1111/padr.12102) [Mejova et al., 2018;](https://dl.acm.org/doi/abs/10.1145/3209811.3212698) [Fatehkia, Kashyap, &amp; Weber, 2018](https://www.sciencedirect.com/science/article/pii/S0305750X18300883))
+- Used in demographics and development research (e.g. [Zagheni, Weber, & Gummadi, 2017;](https://doi.org/10.1111/padr.12102) [Mejova et al., 2018;](https://dl.acm.org/doi/abs/10.1145/3209811.3212698) [Fatehkia, Kashyap, & Weber, 2018](https://www.sciencedirect.com/science/article/pii/S0305750X18300883))
 - Python package to use it: https://github.com/maraujo/pySocialWatcher
 
 ---
 
 ## The Facebook Gender Divide 
 
-`\(R_{g,c}\)`: Ratio of Facebook active users of gender *g* over all inhabitants of gender *g* in country *c*
+$R_{g,c}$: Ratio of Facebook active users of gender *g* over all inhabitants of gender *g* in country *c*
 
-&lt;center&gt;
+<center>
 
 Facebook Gender Divide for country c:  
-&lt;br&gt;
-`\(FGD_c= log\left(\frac{R_{Male,c}}{R_{Female_c}}\right)\)`
-&lt;/center&gt;
+<br>
+$FGD_c= log\left(\frac{R_{Male,c}}{R_{Female_c}}\right)$
+</center>
 
 Validation with survey data:
 - FGD (217 countries)
@@ -690,10 +785,14 @@ Validation with survey data:
 ## Validating the FGD with surveys
 
 .pull-left[
-&lt;img src="figures/FGDval1.png" width="430" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=430, fig.align='center'}
+knitr::include_graphics("figures/FGDval1.png")
+```
 ]
 .pull-right[
-&lt;img src="figures/FGDval2.png" width="450" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=450, fig.align='center'}
+knitr::include_graphics("figures/FGDval2.png")
+```
 ]
 
 - High correlations of ranked FGD with each survey (0.63, 0.74)
@@ -703,13 +802,17 @@ Validation with survey data:
 
 ## The Facebook Gender Divide across countries
 
-&lt;img src="figures/FGDmap.jpg" width="1100" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=1100, fig.align='center'}
+knitr::include_graphics("figures/FGDmap.jpg")
+```
 
 ---
 
 ## The FGD and offline gender inequality
 
-&lt;img src="figures/FGDreg.jpg" width="1100" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=1100, fig.align='center'}
+knitr::include_graphics("figures/FGDreg.jpg")
+```
 - Regression of FGD rank on WEF gender indices and controls
 - Most explanatory variable: Education Gender Equality
 ---
@@ -717,7 +820,9 @@ Validation with survey data:
 ## The FGD and changes in gender inequality
 
 .pull-left[
-&lt;img src="figures/FGDdelta.png" width="550" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=550, fig.align='center'}
+knitr::include_graphics("figures/FGDdelta.png")
+```
 ]
 .pull-right[
 - Changes in FGD and WEF gender equality indicators (2015-2016)
@@ -733,10 +838,14 @@ in 2015 (low FGD) tended to approach economic gender equality in 2016
 ## Positive externalities in Facebook use
 
 .pull-left[
-&lt;img src="figures/Externalities.jpg" width="450" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=450, fig.align='center'}
+knitr::include_graphics("figures/Externalities.jpg")
+```
 ]
 .pull-right[
-&lt;img src="figures/Scaling.png" width="550" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=550, fig.align='center'}
+knitr::include_graphics("figures/Scaling.png")
+```
 ]
 - Superlinear scaling of activity ratio versus total penetration
 - Positive externality: value of using Facebook grows with other people using it
@@ -759,20 +868,22 @@ Proceedings of the National Academy of Sciences (2018)](http://www.pnas.org/cont
 
 
 layout: true
-&lt;div class="my-footer"&gt;&lt;span&gt;David Garcia - Computational Social Science Lab - TU Graz + CSH Vienna&lt;/span&gt;&lt;/div&gt; 
+<div class="my-footer"><span>David Garcia - Computational Social Science Lab - TU Graz + CSH Vienna</span></div> 
 
 ---
 
 # Complex Privacy
 
-&lt;center&gt;
-&lt;img src="figures/ComplexPrivacy.png" width="950" /&gt;
+<center>
+```{r, echo=FALSE, out.width=950}
+knitr::include_graphics("figures/ComplexPrivacy.png")
+```
 
 ---
 
 layout: true
-&lt;div class="my-footer"&gt;&lt;span&gt;
-&lt;a href=https://advances.sciencemag.org/content/3/8/e1701172.full&gt; Leaking privacy and shadow profiles in online social networks. David Garcia. Science Advances (2017) &lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
+<div class="my-footer"><span>
+<a href=https://advances.sciencemag.org/content/3/8/e1701172.full> Leaking privacy and shadow profiles in online social networks. David Garcia. Science Advances (2017) </a></span></div>
 
 ---
 
@@ -785,9 +896,9 @@ Private traits and attributes are predictable from digital records of human beha
 - Facebook Likes predict personality, sexual orientation, etc
 
 Individualized solutions to privacy risks
-&gt; ”Providing users with transparency and control over their information, leading to an individually controlled balance between the promises and perils of the Digital Age.” *(Kosinski et al, 2013)*
+> ”Providing users with transparency and control over their information, leading to an individually controlled balance between the promises and perils of the Digital Age.” *(Kosinski et al, 2013)*
 
-&lt;center&gt;
+<center>
 **Can we guarantee individual control over online privacy?**
 
 ---
@@ -819,16 +930,20 @@ Not a problem unique to Facebook: also in Twitter, Google, Amazon...
 **Shadow profile hypothesis:**
 The data shared by the users of an online platform predicts of personal information of non-users
 
-&lt;img src="figures/shadowidea.png" width="600" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=600, fig.align='center'}
+knitr::include_graphics("figures/shadowidea.png")
+```
 **Approach:** historical audit to evaluate how social networking sites could have predicted information of individuals who were not users yet 
-&lt;div style="font-size:15pt"&gt; 
+<div style="font-size:15pt"> 
 [One Plus One Makes Three (for Social Networks). Emöke-Ágnes Horvát, Michael Hanselmann, Fred Hamprecht, Katharina Zweig. Plos ONE (2012)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0034740)
 
 ---
 
 ## Study 1: Friendster
 .pull-left[
-&lt;img src="figures/FriendsterLogo.png" width="550" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=550, fig.align='center'}
+knitr::include_graphics("figures/FriendsterLogo.png")
+```
 - Internet Archive dataset
 - Full track of publicly available data
 - Focus on first 20 million users
@@ -836,43 +951,53 @@ The data shared by the users of an online platform predicts of personal informat
 - Profiles contain gender, marital status, and relationship interests
 ]
 .pull-right[
-&lt;img src="figures/FriendsterNet.png" width="450" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=450, fig.align='center'}
+knitr::include_graphics("figures/FriendsterNet.png")
+```
 ]
 
 ---
 
 ## Assortativity of sensitive features in Friendster
 
-&lt;img src="figures/Radars.png" width="870" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=870, fig.align='center'}
+knitr::include_graphics("figures/Radars.png")
+```
 ---
 
 ## Unsupervised prediction based on friends
 
-&lt;br&gt;
+<br>
 
-&lt;img src="figures/ROCs.png" width="1100" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=1100, fig.align='center'}
+knitr::include_graphics("figures/ROCs.png")
+```
 
 ---
 ### Predictive power grows with network size and disclosure
 
-&lt;img src="figures/preds.png" width="1100" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=1100, fig.align='center'}
+knitr::include_graphics("figures/preds.png")
+```
 
-&lt;center&gt;
+<center>
 Performance of predictor of personal information of non-users grows with: 
 network size (t), disclosure tendencies of users (ρ), and their product (t∗ρ)
 
 ---
 
 layout: true
-&lt;div class="my-footer"&gt;&lt;span&gt;
-&lt;a href=https://epjdatascience.springeropen.com/articles/10.1140/epjds/s13688-018-0130-3&gt; Collective aspects of privacy in the Twitter social network. David Garcia, Mansi Goel, Amod Agrawal, Ponnurangam Kumaraguru. EPJ Data Science (2018)&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
+<div class="my-footer"><span>
+<a href=https://epjdatascience.springeropen.com/articles/10.1140/epjds/s13688-018-0130-3> Collective aspects of privacy in the Twitter social network. David Garcia, Mansi Goel, Amod Agrawal, Ponnurangam Kumaraguru. EPJ Data Science (2018)</a></span></div>
 
 ---
 
 ## Study 2: Location in Twitter
 
 .pull-left[
-&lt;img src="figures/TwitterLocation.png" width="1100" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=1100, fig.align='center'}
+knitr::include_graphics("figures/TwitterLocation.png")
+```
 ]
 .pull-right[
 - Random sample of 1,017 users
@@ -888,7 +1013,9 @@ layout: true
 
 ## Twitter shadow profile test
 
-&lt;img src="figures/TwitterProblem.png" width="1100" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=1100, fig.align='center'}
+knitr::include_graphics("figures/TwitterProblem.png")
+```
 
 - Data represents a bidirectional social network
 - Joined date of users shows network growth
@@ -898,7 +1025,9 @@ layout: true
 
 ## Location prediction and heterogeneity
 
-&lt;img src="figures/alters.png" width="1000" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=1000, fig.align='center'}
+knitr::include_graphics("figures/alters.png")
+```
 
 - Location prediction of non-users greatly outperforms null model
 - Individuals with more alters sharing contact lists in Twitter have lower error
@@ -907,7 +1036,9 @@ layout: true
 
 ## Disclosure tendency effect
 
-&lt;img src="figures/alters2.png" width="1100" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=1100, fig.align='center'}
+knitr::include_graphics("figures/alters2.png")
+```
 
 - Simulated disclosure: Prediction error decreases with disclosure tendency
 
@@ -915,11 +1046,13 @@ layout: true
   
 ## Shadow profiles after leaving a social network
 
-&lt;img src="figures/Shadow2.png" width="800" style="display: block; margin: auto;" /&gt;
-&lt;div style="font-size:15pt"&gt; 
+```{r, echo=FALSE, out.width=800, fig.align='center'}
+knitr::include_graphics("figures/Shadow2.png")
+```
+<div style="font-size:15pt"> 
 [**Privacy beyond the individual.** David Garcia. Nature Human Behavior (2019)](https://www.nature.com/articles/s41562-018-0513-2)
 
-[**Information flow reveals prediction limits in online social activity.** James Bagrow, Xipei Liu &amp; Lewis Mitchell. Nature Human Behavior (2019)](https://doi.org/10.1038/s41562-018-0510-5)
+[**Information flow reveals prediction limits in online social activity.** James Bagrow, Xipei Liu & Lewis Mitchell. Nature Human Behavior (2019)](https://doi.org/10.1038/s41562-018-0510-5)
 
 ---
 
@@ -931,9 +1064,11 @@ layout: true
 - Complex problems, collective solutions: International data cooperatives
 ]
 .pull-right[
-&lt;img src="figures/wired.png" width="500" style="display: block; margin: auto;" /&gt;
+```{r, echo=FALSE, out.width=500, fig.align='center'}
+knitr::include_graphics("figures/wired.png")
+```
 ]
-&lt;div style="font-size:16pt"&gt; 
+<div style="font-size:16pt"> 
 [**Online privacy as a collective phenomenon.** E. Sarigol, D. Garcia, F. Schweitzer. Second ACM Conference on Online Social Networks (COSN) (2014)](https://dl.acm.org/doi/10.1145/2660460.2660470)  
 [**Leaking privacy and shadow profiles in online social networks.** D. Garcia, Science Advances, 3 (8) e1701172 (2017)](https://advances.sciencemag.org/content/3/8/e1701172.full)  
 [**Collective Aspects of Privacy in the Twitter Social Network.** D. Garcia, M. Goel, A. Agrawal, P. Kumaraguru, EPJ Data Science, 7(3) (2018)](https://epjdatascience.springeropen.com/articles/10.1140/epjds/s13688-018-0130-3)  
@@ -941,7 +1076,7 @@ layout: true
 ---
 
 layout: true
-&lt;div class="my-footer"&gt;&lt;span&gt;David Garcia - Computational Social Science Lab - TU Graz + CSH Vienna&lt;/span&gt;&lt;/div&gt; 
+<div class="my-footer"><span>David Garcia - Computational Social Science Lab - TU Graz + CSH Vienna</span></div> 
 
 ---
 
@@ -949,130 +1084,7 @@ class:center
 
 ## By the Computational Social Science Lab
 In collaboration with:
-&lt;img src="figures/CSSLab-2020.png" width="1200" /&gt;
+```{r, echo=FALSE, out.width=1200}
+knitr::include_graphics("figures/CSSLab-2020.png")
+```
 **Thanks for listening! More at www.dgarcia.eu and [@dgarcia_eu](https://twitter.com/dgarcia_eu)**
-    </textarea>
-<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
-<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="libs/perc.js"></script>
-<script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false,
-"ratio": "16:9"
-});
-if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
-  window.dispatchEvent(new Event('resize'));
-});
-(function(d) {
-  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
-  if (!r) return;
-  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
-  d.head.appendChild(s);
-})(document);
-
-(function(d) {
-  var el = d.getElementsByClassName("remark-slides-area");
-  if (!el) return;
-  var slide, slides = slideshow.getSlides(), els = el[0].children;
-  for (var i = 1; i < slides.length; i++) {
-    slide = slides[i];
-    if (slide.properties.continued === "true" || slide.properties.count === "false") {
-      els[i - 1].className += ' has-continuation';
-    }
-  }
-  var s = d.createElement("style");
-  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
-  d.head.appendChild(s);
-})(document);
-// delete the temporary CSS (for displaying all slides initially) when the user
-// starts to view slides
-(function() {
-  var deleted = false;
-  slideshow.on('beforeShowSlide', function(slide) {
-    if (deleted) return;
-    var sheets = document.styleSheets, node;
-    for (var i = 0; i < sheets.length; i++) {
-      node = sheets[i].ownerNode;
-      if (node.dataset["target"] !== "print-only") continue;
-      node.parentNode.removeChild(node);
-    }
-    deleted = true;
-  });
-})();
-(function() {
-  "use strict"
-  // Replace <script> tags in slides area to make them executable
-  var scripts = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container script'
-  );
-  if (!scripts.length) return;
-  for (var i = 0; i < scripts.length; i++) {
-    var s = document.createElement('script');
-    var code = document.createTextNode(scripts[i].textContent);
-    s.appendChild(code);
-    var scriptAttrs = scripts[i].attributes;
-    for (var j = 0; j < scriptAttrs.length; j++) {
-      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
-    }
-    scripts[i].parentElement.replaceChild(s, scripts[i]);
-  }
-})();
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
-
-<script>
-slideshow._releaseMath = function(el) {
-  var i, text, code, codes = el.getElementsByTagName('code');
-  for (i = 0; i < codes.length;) {
-    code = codes[i];
-    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-      text = code.textContent;
-      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-          /^\$\$(.|\s)+\$\$$/.test(text) ||
-          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-        code.outerHTML = code.innerHTML;  // remove <code></code>
-        continue;
-      }
-    }
-    i++;
-  }
-};
-slideshow._releaseMath(document);
-</script>
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-(function () {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
-  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
-    script.src  = script.src.replace(/^https?:/, '');
-  document.getElementsByTagName('head')[0].appendChild(script);
-})();
-</script>
-  </body>
-</html>
