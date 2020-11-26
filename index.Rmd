@@ -570,7 +570,7 @@ knitr::include_graphics("figures/yes2meat.png")
 ## Twitter data on EAT-Lancet and yes2meat
 
 - List of original tweets that contain “EAT-Lancet” (or similar) or “yes2meat” from Twitter search interface (Dec 2018 - April 2019):
-  - 7281 EAT-Lancet tweets, 8586 ye2smeat tweets, 347 tweets mention both
+  - 7281 EAT-Lancet tweets, 8586 yessmeat tweets, 347 tweets mention both
 - Tweet metadata from Twitter API: retweets, links, user profile (4278 users)
   - User profiles and self-description from Twitter API
   - Retrieved list of accounts they follow: 4.9 Million follower links
@@ -1034,16 +1034,6 @@ knitr::include_graphics("figures/alters.png")
 
 ---
 
-## Disclosure tendency effect
-
-```{r, echo=FALSE, out.width=1100, fig.align='center'}
-knitr::include_graphics("figures/alters2.png")
-```
-
-- Simulated disclosure: Prediction error decreases with disclosure tendency
-
----
-  
 ## Shadow profiles after leaving a social network
 
 ```{r, echo=FALSE, out.width=800, fig.align='center'}
